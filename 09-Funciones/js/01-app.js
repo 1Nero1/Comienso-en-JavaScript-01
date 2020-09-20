@@ -13,14 +13,14 @@
     //     console.log(2+2);
     // };
     // suma(); // Asi es como se imprime
-    function suma(){
-        console.log(2+2);
-    };
-    suma();
-    
-    // SEGUNDA FORMA (Expresión de Funcion)
-    const resta = function(){
-        console.log(8-2);
-    };
-    resta();
+function suma(){
+    console.log(2+2);
+};
+suma();
+
+// SEGUNDA FORMA (Expresión de Funcion)
+const resta = function(){
+    console.log(8-2);
+};
+resta();
     // Como podemos observar des esta forma se crea una funcion pero es similar a la creacion de una variable o un objeto pero de ahi en fuera su contenido y su impresion es igual que la perimera
