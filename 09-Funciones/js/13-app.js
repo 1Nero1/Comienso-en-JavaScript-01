@@ -11,7 +11,7 @@ const reproductor = {
     borrrar: (nCansion) => console.log(`borrar la cansion ${nCansion}`),
     reproducirPlaylist: (listaMusical) => console.log(`reproducir la playlist ${listaMusical}`),
 
-    // Hay otra forma de realizar esto y es el "set" y "get" ya no es muy usada pero aun es necesaria 
+    //TODO Hay otra forma de realizar esto y es el "set" y "get" ya no es muy usada pero aun es necesaria 
     // Ejemplo:
     set nuevaCancion(cansion){
         this.cansion = cansion;
