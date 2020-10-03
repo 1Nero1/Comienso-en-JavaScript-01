@@ -26,5 +26,5 @@ console.log("===================================================================
 for(let [llave,valor] of Object.entries(persona)){
     console.log(llave);
     console.log(valor);
-}
+};
 // Esta es la forma en la que se espera de igual manera poder udar el "for ...of" cuando salga la autorizacion de ES7 (Recuerda que ahorita estamos en ES6).
