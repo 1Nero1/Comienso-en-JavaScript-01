@@ -1,4 +1,4 @@
-// TODO: spread operator
+// TODO: Spread Operator
 
 // REMEMBER:El operador de propagación spread operator permite que una expresión sea expandida en situaciones donde se esperan múltiples argumentos (llamadas a funciones) o múltiples elementos (arrays literales).
 // Ejemplo:
