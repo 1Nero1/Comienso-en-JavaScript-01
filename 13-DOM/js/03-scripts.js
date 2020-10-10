@@ -1,6 +1,6 @@
 //TODO: getElementById
 
-//REMEMBER: Devuelve el elemnto que tenga el ID que nosotros coloquemos
+//REMEMBER: Devuelve el elemento que tenga el ID que nosotros coloquemos
 
 const formulario = document.getElementById('formulario');
 console.log(formulario);
