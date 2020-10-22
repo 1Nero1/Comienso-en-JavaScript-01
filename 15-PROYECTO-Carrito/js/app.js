@@ -14,8 +14,28 @@ function registroEventos (){
 // Funciones
     // Agregarcurso
 function agregarCurso(evento){
-    e.preventDefaul(); // Solo lo usamos por el momento ay que nuestros enlaces tienen #
+    evento.preventDefault(); // Solo lo usamos por el momento ay que nuestros enlaces tienen #
     if(evento.target.classList.contains('agregar-carrito')){
-        console.log('Agregando al carrito...');
+            // Aplicaremos traversing
+        const cursoSeleccionado = evento.target.parentElement.parentElement;
+        leerDatosCurso(cursoSeleccionado);
     }
+}
+
+// NOTA: Se recomienda no hacer funciones tan largas (Dividir las secciones.) 
+
+// Lee el contenido de HTML al que le dimos click y extrae la informacion del curso
+function leerDatosCurso(curso){
+    console.log(curso);
+    // Crear un objeto con el contenido del curso actual
+    const datosCurso = {
+        // NOTA: Normalmente lo acemos con "document" pero en este caso curso tiene datos del HTML que conseguimos en el "Traversing"
+        imagen: curso.querySelector('img').src,
+        titulo: curso.querySelector('h4').textContent,
+        precio: curso.querySelector('.precio span').textContent,
+        id: curso.querySelector('a').getAttribute('data-id'),
+        cantidad: 1,
+    }
+
+    console.log(datosCurso);
 }
