@@ -30,7 +30,7 @@ function agregarCurso(evento){
 
 // Lee el contenido de HTML al que le dimos click y extrae la informacion del curso
 function leerDatosCurso(curso){
-    console.log(curso);
+    //console.log(curso);
     // Crear un objeto con el contenido del curso actual
     const datosCurso = {
         // NOTA: Normalmente lo acemos con "document" pero en este caso curso tiene datos del HTML que conseguimos en el "Traversing"
@@ -41,11 +41,29 @@ function leerDatosCurso(curso){
         cantidad: 1,
     }
 
-    //Agrega elementos al carrito
-    agregarArticulos = [...agregarArticulos, datosCurso]
-    /*Se necesita una copia del arreglo anterior pra tener una referencia de los articulos que se agregaron anterior mente */
-
-    console.log(agregarArticulos);
+    //Revisa si un elemento ya existe en el carrito
+        /*REMEMBER SUME permite iterar sobre un arreglo de objetos y verificar si un elemento exite en el */
+    const existe = agregarArticulos.some( curso => curso.id === datosCurso.id);
+    //console.log(existe);
+    if(existe){ //Actualizamos la cantidad
+        const losCursos = agregarArticulos.map(curso =>{
+            //REMEMBER .map crea un nuevo arreglo, el cual va ir iterando sobre todos los elementos del carrito
+            if(curso.id === datosCurso.id){
+                curso.cantidad++;
+                
+                return curso; //Retorna el objeto actualizado
+            }else{
+                return curso; //Retorna los objetos que no son duplicados
+            }
+        });
+        agregarArticulos = [...losCursos];
+    }else{ //Agregamos el curso al carrito
+        //Agrega elementos al carrito
+        agregarArticulos = [...agregarArticulos, datosCurso]
+        /*Se necesita una copia del arreglo anterior pra tener una referencia de los articulos que se agregaron anterior mente */
+    
+        console.log(agregarArticulos);
+    }
     
     carritoHTML();
 }
@@ -59,7 +77,7 @@ function carritoHTML(){
     //Recorre el carrito y genera el HTML
     agregarArticulos.forEach(curso=>{
         //Creando un dristrocion para mejorar el codigo
-        const {imagen, titulo, precio, cantidad, id}= curso:
+        const {imagen, titulo, precio, cantidad, id}= curso;
 
         const row = document.createElement('tr');
         row.innerHTML=`
