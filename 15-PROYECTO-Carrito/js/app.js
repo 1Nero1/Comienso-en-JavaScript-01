@@ -10,6 +10,9 @@ registroEventos();
 function registroEventos (){
     // Cuando agregas un curso precionando "Agregar al carrito"
     listaCursos.addEventListener('click', agregarCurso); /* Recuerda que no es necesario porner los parentecis en la función (solo en este caso)*/
+
+    //Elimina cursos del carrito
+    carrito.addEventListener('click',eliminarCurso);
 }
 
 // Funciones
@@ -24,6 +27,19 @@ function agregarCurso(evento){
 }
 /*REMEMBER Que en un proyecto verdadero en lugar de tener # va el enlace "www.ejemplo.com" */
 
+    //ELiminaCurso
+function eliminarCurso(e){
+    if(e.target.classList.contains("borrar-curso")){
+        //console.log(e.target.getAttribute('data-id'));
+        const cursoId = e.target.getAttribute('data-id');
+
+        //Elimina del arreglo agregarArticulos por el data-id 
+        agregarArticulos = agregarArticulos.filter( curso => curso.id !== cursoId);
+
+        //console.log(agregarArticulos);
+        carritoHTML(); // Iterar sobre el carrito y mostrar su HTML
+    }
+}
 
 
 // NOTA: Se recomienda no hacer funciones tan largas (Dividir las secciones.)
