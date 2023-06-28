@@ -13,6 +13,15 @@ function registroEventos (){
 
     //Elimina cursos del carrito
     carrito.addEventListener('click',eliminarCurso);
+
+    //Vaciar el carrito de compras
+    vaciarCarrito.addEventListener('click', () => {
+        //console.log('vaciar carrito')
+
+        agregarArticulos = []; //Reseteamos el carrito
+
+        limpiarHTML(); //Limpia el carrito (Borra todo el HTML)
+    })
 }
 
 // Funciones
